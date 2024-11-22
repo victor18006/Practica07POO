@@ -42,7 +42,6 @@ public class Juego {
         //reparte fichas
         preparaMesa();
         reparteFichas();
-        //System.out.println("TAMANO ARREGLO FICHAS: " + pozo.piezas.size() + "\n\n");
         //se determina cuál jugador comienza la ronda
         determinaQuienComienza();
 
@@ -125,8 +124,6 @@ public class Juego {
         System.out.println("Puntaje del jugador " + jugadores[1].getNombre() + ": " + jugadores[1].getPuntos());
         System.out.println("El ganador del juego es : " + jugadores[ganadorFinal].getNombre());
         System.out.println("Puntaje final: " + jugadores[ganadorFinal].getPuntos());
-        /*int posPerdedor = 1 - ganadorFinal;
-        System.out.println("Puntaje del otro jugador: " + jugadores[posPerdedor].getNombre() + ": " + jugadores[posPerdedor].getPuntos());*/
     }
 
     /**
@@ -135,7 +132,6 @@ public class Juego {
     private void reparteFichas() {
         for (int i = 0; i < 2; i++) {
             jugadores[i].setMano(pozo.get10fichas());
-            //mano.clear();
         }
     }
 
@@ -143,11 +139,8 @@ public class Juego {
      * Genera las fichas y las mezcla para poder comenzar el juego
      */
     private void preparaMesa() {
-        //pozo.reiniciaSet();
         pozo.generaPiezas();
         pozo.mezclarPiezas();
-        //System.out.println("...Mezclando fichas...");
-        //pause();
     }
 
     /**
@@ -191,20 +184,13 @@ public class Juego {
         int primerSeleccion;
         int posicionPrimerSeleccion;
         FichaDomino[] fichaTemp = new FichaDomino[3];
-        //ArrayList<FichaDomino> fichaTempPrimera;
         FichaDomino ficha;
-        //fichaTempPrimera = new ArrayList<>();
 
         do {
             for (int i = 0; i < jugadores.length; i++) {
                 jugadores[i].imprimeMano();
-                /*System.out.println("Jugador: " + jugadores[i].getNombre() +
-                    "\n Presiona 1 para seleccionar una ficha al azar");*/
                 System.out.println("Jugador: " + jugadores[i].getNombre()
                         + "\nIngresa el número de ficha a elegir: ");
-                /*do {
-                usuario = scanner.nextInt();
-            } while (usuario != 1);*/
                 int manoSize = jugadores[i].cantidadDeFichas();
                 do {
                     primerSeleccion = scanner.nextInt();
@@ -212,13 +198,10 @@ public class Juego {
                         System.out.println("Elige un número de ficha correcta.");
                     }
                 } while (!(primerSeleccion > 0 && primerSeleccion <= manoSize));
-                //posicion[i] = random.nextInt(0, 9);
                 posicion[i] = primerSeleccion - 1;
                 ficha = jugadores[i].getFicha(posicion[i]);
                 fichaTemp[i] = ficha;
                 valorDeFicha[i] = ficha.sumaDePuntos();
-                //pause();
-                //System.out.println(ficha + "\nPuntos: " + valorDeFicha[i]);
             }
             if (valorDeFicha[0] == valorDeFicha[1]) {
                 System.out.println("Vuelve a elegir fichas porque los jugadores tienen la misma suma de puntos.\n");
@@ -240,7 +223,6 @@ public class Juego {
                 for (int i = 0; i < 6; i++) {
                     fichaTemp[0].rotateRight();
                     System.out.println("Opcion " + (i + 1) + ":\n" + fichaTemp[0]);
-                    //fichaTempPrimera.add(fichaTemp[0]);
                 }
                 do {
                     posicionPrimerSeleccion = scanner.nextInt();
@@ -250,7 +232,6 @@ public class Juego {
                 } while (posicionPrimerSeleccion < 1 || posicionPrimerSeleccion > 6);
                 for (int h = 0; h < posicionPrimerSeleccion; h++) {
                     fichaTemp[0].rotateRight();
-                    //System.out.println("Opcion " + (h + 1) + ":\n" + fichaTemp[0]);
                     if (posicionPrimerSeleccion == h + 1) {
                         fichaTemp[2] = fichaTemp[0];
                     }
@@ -288,7 +269,6 @@ public class Juego {
                 for (int i = 0; i < 6; i++) {
                     fichaTemp[1].rotateRight();
                     System.out.println("Opcion " + (i + 1) + ":\n" + fichaTemp[1]);
-                    //fichaTempPrimera.add(fichaTemp[0]);
                 }
                 do {
                     posicionPrimerSeleccion = scanner.nextInt();
@@ -298,7 +278,6 @@ public class Juego {
                 } while (posicionPrimerSeleccion < 1 || posicionPrimerSeleccion > 6);
                 for (int h = 0; h < posicionPrimerSeleccion; h++) {
                     fichaTemp[1].rotateRight();
-                    //System.out.println("Opcion " + (h + 1) + ":\n" + fichaTemp[1]);
                     if (posicionPrimerSeleccion == h + 1) {
                         fichaTemp[2] = fichaTemp[1];
                     }
@@ -448,12 +427,6 @@ public class Juego {
                         }
                     }
                     //FIN
-                    /*
-                    dd
-                    d
-                    d
-                    */
-                    //FichaTridomino fichaAInsertar_tri = (FichaTridomino) fichaAInsertar;
                     if (fichaAInsertar_tri.tieneValor(fichaFinal_tri.getValorArriba())) {
                         do {
                             if (fichaAInsertar_tri.getValorArriba() == fichaFinal_tri.getValorArriba()
@@ -544,7 +517,6 @@ public class Juego {
                     }
                 }
                 //Aqui termina codigo primero
-                //FichaTridomino fichaAInsertar_tri = (FichaTridomino) fichaAInsertar;
                 if (fichaAInsertar_tri.tieneValor(fichaFinal.getValorDerecho())) {
                     do {
                         if (fichaAInsertar_tri.getValorArriba() == fichaFinal.getValorDerecho()

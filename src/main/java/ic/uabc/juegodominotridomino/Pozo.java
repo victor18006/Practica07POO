@@ -30,14 +30,6 @@ public class Pozo {
     }
 
     /**
-     * Limpia y vuelve a generar el set
-     */
-    /*public void reiniciaSet(){
-        piezas.clear();
-        generaPiezas();
-    }*/
-
-    /**
      * Crea las fichas del set
      */
     public void generaPiezas(){
@@ -64,7 +56,6 @@ public class Pozo {
         for (int i = 0; i <= 5; i++){
             for (int j = i; j <= 5; j++){
                 for (int k = j; k <= 5; k++){
-                    //FichaTridomino ficha = new FichaTridomino(i,j,k);
                     piezas.add(new FichaTridomino(i,j,k));
                 }
             }
@@ -73,9 +64,7 @@ public class Pozo {
 
     public ArrayList<FichaDomino> get10fichas() {
         ArrayList<FichaDomino> mano = new ArrayList<FichaDomino>();
-        for (int i = 0; i < 30; i++) {
-            /*mano.add(piezas.getFirst());
-            piezas.removeFirst();*/
+        for (int i = 0; i < 10; i++) {
             mano.add(piezas.get(0));
             piezas.remove(0);
         }
@@ -84,8 +73,6 @@ public class Pozo {
     public ArrayList<FichaDomino> get2fichas() {
         ArrayList<FichaDomino> mano = new ArrayList<FichaDomino>();
         for (int i = 0; i < 2; i++) {
-            /*mano.add(piezas.getFirst());
-            piezas.removeFirst();*/
             mano.add(piezas.get(0));
             piezas.remove(0);
         }
