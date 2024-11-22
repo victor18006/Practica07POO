@@ -19,7 +19,7 @@ public class Pozo {
      * Constructor de la clase
       */
     public Pozo() {
-        piezas = new ArrayList<>();
+        piezas = new ArrayList<FichaDomino>();
     }
 
     /**
@@ -32,10 +32,10 @@ public class Pozo {
     /**
      * Limpia y vuelve a generar el set
      */
-    public void reiniciaSet(){
+    /*public void reiniciaSet(){
         piezas.clear();
         generaPiezas();
-    }
+    }*/
 
     /**
      * Crea las fichas del set
@@ -51,8 +51,8 @@ public class Pozo {
     private void generarDomino(){
         for (int i = 0; i <= 6; i++) {
             for (int j = i; j <= 6 ; j++) {
-                FichaDomino pieza = new FichaDomino(i,j);
-                piezas.add(pieza);
+                //FichaDomino pieza = new FichaDomino(i,j);
+                piezas.add(new FichaDomino(i,j));
             }
         }
     }
@@ -64,26 +64,30 @@ public class Pozo {
         for (int i = 0; i <= 5; i++){
             for (int j = i; j <= 5; j++){
                 for (int k = j; k <= 5; k++){
-                    FichaTridomino ficha = new FichaTridomino(i,j,k);
-                    piezas.add(ficha);
+                    //FichaTridomino ficha = new FichaTridomino(i,j,k);
+                    piezas.add(new FichaTridomino(i,j,k));
                 }
             }
         }
     }
 
     public ArrayList<FichaDomino> get10fichas() {
-        ArrayList<FichaDomino> mano = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            mano.add(piezas.getFirst());
-            piezas.removeFirst();
+        ArrayList<FichaDomino> mano = new ArrayList<FichaDomino>();
+        for (int i = 0; i < 30; i++) {
+            /*mano.add(piezas.getFirst());
+            piezas.removeFirst();*/
+            mano.add(piezas.get(0));
+            piezas.remove(0);
         }
         return mano;
     }
     public ArrayList<FichaDomino> get2fichas() {
-        ArrayList<FichaDomino> mano = new ArrayList<>();
+        ArrayList<FichaDomino> mano = new ArrayList<FichaDomino>();
         for (int i = 0; i < 2; i++) {
-            mano.add(piezas.getFirst());
-            piezas.removeFirst();
+            /*mano.add(piezas.getFirst());
+            piezas.removeFirst();*/
+            mano.add(piezas.get(0));
+            piezas.remove(0);
         }
         return mano;
     }
@@ -92,11 +96,22 @@ public class Pozo {
         piezas.removeFirst();
         return ficha;
     }
+    
     public boolean estaVacio(){
         boolean resp=false;
         if(piezas.isEmpty()){
                  resp= true;
         }
         return resp;
+    }
+
+    public int getSize() {
+        return piezas.size();
+    }
+    
+    public void MostrarDomino(){
+        for(FichaDomino fichadomino: piezas){
+            System.out.println(fichadomino.toString());
+        }
     }
 }

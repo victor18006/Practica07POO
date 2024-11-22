@@ -69,28 +69,33 @@ public class Jugador {
 
         // Construir la nueva cadena combinando las partes de las cadenas
         StringBuilder combinedTile = new StringBuilder();
-
-        for (int i = 0; i < mano.size(); i++){
-            String finalDeCadena;
-            if(i<10) finalDeCadena="]  ";
-            else finalDeCadena="] ";
-           if(mano.get(i).isTridomino()) combinedTile.append("  [").append(i+1).append(finalDeCadena);
-           else combinedTile.append("[").append(i+1).append("] ");
-        }
         
-        combinedTile.append("\n\n");
-
+        combinedTile.append("\n");
+        
         for (int i = 0; i < mano.size(); i++) {
             if(i>9) combinedTile.append(" ");
             combinedTile.append(mano.get(i).toString().substring(0, indices[i]));
             combinedTile.append(" ");
         }
         combinedTile.append("\n");
+
         for (int i = 0; i < mano.size(); i++) {
             if(i>9) combinedTile.append(" ");
             combinedTile.append(mano.get(i).toString().substring(indices[i] + 1));
             combinedTile.append(" ");
         }
+        
+        combinedTile.append("\n");
+        
+        for (int i = 0; i < mano.size(); i++){
+            String finalDeCadena;
+            if(i<10) finalDeCadena="-  ";
+            else finalDeCadena="-  ";
+           if(mano.get(i).isTridomino()) combinedTile.append("-").append(i+1).append(finalDeCadena);
+           else combinedTile.append("-").append(i+1).append("- ");
+        }
+        combinedTile.append("\n");
+        
         System.out.println(combinedTile.toString());
     }
     

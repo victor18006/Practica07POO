@@ -107,11 +107,11 @@ public class FichaTridomino extends FichaDomino {
     @Override
     public String toString(){
         final StringBuilder sb = new StringBuilder();
-        if (volteada) {
+        /*if (volteada) {
             if (pointingUp) { // it's pointing up
                 // sb.append("  / \\\n");
-                sb.append(" *").append(valorArriba).append("\\ \n");
-                sb.append("*").append(valorIzquierdo).append(" ").append(valorDerecho).append("\\");
+                sb.append(" /").append(valorArriba).append("\\ \n");
+                sb.append("/").append(valorIzquierdo).append(" ").append(valorDerecho).append("\\");
             } else { // it's pointing down
                 sb.append("\\").append(valorIzquierdo);
                 sb.append(" ").append(valorDerecho).append("/\n");
@@ -121,6 +121,21 @@ public class FichaTridomino extends FichaDomino {
             // no se ven los puntos
             sb.append("/ \\\n");
             sb.append("/    \\\n");
+        }*/
+        if (volteada) {
+            if (pointingUp) { // it's pointing up
+                // sb.append("  / \\\n");
+                sb.append(" ").append(valorArriba).append("  \n");
+                sb.append("").append(valorIzquierdo).append(" ").append(valorDerecho).append(" ");
+            } else { // it's pointing down
+                sb.append("").append(valorIzquierdo);
+                sb.append(" ").append(valorDerecho).append(" \n");
+                sb.append(" ").append(valorArriba).append("  ");
+            }
+        } else {
+            // no se ven los puntos
+            sb.append("   \n");
+            sb.append("      \n");
         }
         return sb.toString();
     }

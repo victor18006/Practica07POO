@@ -197,8 +197,8 @@ public class FichaDomino implements Movible {
                     break;
                 case NORTH:
                 case SOUTH:
-                    sb.append("|").append(valorIzquierdo).append("|\n");
-                    sb.append("|").append(valorDerecho).append("|");
+                    sb.append("[").append(valorIzquierdo).append("]\n");
+                    sb.append("[").append(valorDerecho).append("]");
                     break;
             }
         } else {

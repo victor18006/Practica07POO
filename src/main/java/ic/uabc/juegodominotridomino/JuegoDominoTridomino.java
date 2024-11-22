@@ -14,6 +14,19 @@ public class JuegoDominoTridomino {
     public static void main(String[] args) {
         Juego juego = new Juego();
         juego.comenzarJuego();
+        /*Pozo pozo = new Pozo();
+        pozo.generaPiezas();
+        pozo.MostrarDomino();
+        pozo.mezclarPiezas();
+        System.out.println("Fichas mezcladas:\n");
+        pozo.MostrarDomino();*/
+        /*for(Pozo ficha: domino){
+            System.out.println(ficha.toString());
+        }
+        for(int i = 0; i<pozo.getSize(); i++){
+            System.out.println("Piezas " + i + ": " +);
+        }*/
+        
 /*
         FichaTridomino ficha= new FichaTridomino(1,2,3);
         System.out.println("giro a la izquierda");
